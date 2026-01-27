@@ -12,9 +12,16 @@ if [ -d $1 ]; then
 else
     echo "$1 does not exist" && exit
 fi
+rownum="009"
+
+logfile=out${rownum}.log
+[[ -e "${logfile}" ]] && rm -rf ${logfile}
+
+tmpfile=out${rownum}.find
+[[ -e "${tmpfile}" ]] && rm -rf ${tmpfile}
 
 # Find all the links, pull out the link name and target
-find $1 -type l -ls | awk '{print $11 " " $12 " " $13}' | sort > out009.find
+find $1 -type l -ls | awk '{print $11 " " $12 " " $13}' | sort > ${tmpfile}
 
 # Remove lines with a target specified by a relative path (../path/to/file) 
-grep -v '\.\.\/' out009.find | column -t > out009.links_to_check
+grep -v '\.\.\/' ${tmpfile} | column -t > ${logfile}

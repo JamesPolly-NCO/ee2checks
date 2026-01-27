@@ -13,4 +13,9 @@ else
     echo "$1 does not exist" && exit
 fi
 
-echo "Not implemented."
+rownum="008"
+
+logfile=out${rownum}.log
+[[ -e "${logfile}" ]] && rm -rf ${logfile}
+
+echo "Not implemented. Need direction non-operational server to check?"

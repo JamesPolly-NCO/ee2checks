@@ -30,4 +30,4 @@ stds_list=("doc"\
 #echo "${stds_list[@]}"
 check_list=($1/*)
 
-paste <(printf "%s\\n" "${check_list[@]}") <(printf "%s\\n" "${stds_list[@]}")
+paste <(printf "%s\\n" "${check_list[@]}") <(printf "%s\\n" "${stds_list[@]}") | column -t
