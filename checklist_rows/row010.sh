@@ -21,7 +21,8 @@ logfile=out${rownum}.log
 echo "Checking j-jobs for actions before entering working directory..."
 for tmpjjob in $(ls $1/jobs/*); do
     echo $tmpjjob >> ${logfile}
-    grep -e 'cd \$.*$' -e '.*\.sh' -e '.*\.py' -e '.*\.pl' -n $tmpjjob >> ${logfile}
+    grep -e 'cd \$.*$' -e '.*\.sh' -e '.*\.py' -e '.*\.pl' -e '>' \
+         -n $tmpjjob | grep -v 'export .*=' >> ${logfile}
     echo "" >> ${logfile}
 done
 echo "Output written to ${logfile}"
