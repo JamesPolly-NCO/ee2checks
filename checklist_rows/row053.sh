@@ -32,8 +32,8 @@ fixdir=${tmpdir}/fix
 grep -c 'err_chk' ${jobsdir}/* > ${logfile}.chkjobs
 grep -c 'err_exit' ${jobsdir}/* > ${logfile}.exitjobs
 
-grep -c 'err_chk' ${jobsdir}/* > ${logfile}.chkscripts
-grep -c 'err_exit' ${jobsdir}/* > ${logfile}.exitscripts
+grep -c 'err_chk' ${scriptsdir}/* > ${logfile}.chkscripts
+grep -c 'err_exit' ${scriptsdir}/* > ${logfile}.exitscripts
 
 echo "Jobs that do not call err_chk:"
 grep ':0' ${logfile}.chk*
