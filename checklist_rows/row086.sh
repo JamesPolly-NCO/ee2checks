@@ -62,7 +62,7 @@ for f in $(ls ${outputdir}/${model}_${runtype}*); do
     if [[ "$errcnt" -gt 0 ]]; then
        caterrcnt=$(grep -c 'cat errfile' $f)
        if [[ $caterrcnt -eq 0 ]]; then
-           echo "FAIL: no cat of errfile" >> $logfile
+           echo "FAIL: no cat of errfile, check for use of err_exit" >> $logfile
        else
            catlines=$(grep -n 'cat errfile' $f | cut -d':' -f1 | sort | uniq)
            for catline in ${catlines}; do
