@@ -1,5 +1,7 @@
 #!/bin/bash
-# Has the interpreter’s name been added to the top of ALL interpreted scripts?
+# Are executables preceded with logic that ensures old variables or 
+# links used to point to input/output files in earlier steps have 
+# been reset (e.g., use of prep_step to unset FORTxx)?
 
 if (($# != 1)); then
     echo "usage: $0 /path/to/pkg"

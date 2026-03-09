@@ -1,5 +1,5 @@
 #!/bin/bash
-# Has the interpreter’s name been added to the top of ALL interpreted scripts?
+# Has all background processing been removed?
 
 if (($# != 1)); then
     echo "usage: $0 /path/to/pkg"
